@@ -7,7 +7,7 @@ long_description 'Installs/Configures audit_agr'
 version '0.1.1'
 chef_version '>= 12.14' if respond_to?(:chef_version)
 
-epends 'audit'
+depends 'audit'
 depends 'windows-hardening'
 depends 'os-hardening'
 depends 'cis-el7-l1-hardening'
