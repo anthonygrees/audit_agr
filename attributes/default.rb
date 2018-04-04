@@ -27,23 +27,15 @@ default['audit']['profiles'] =
   when 'windows'
     default['audit']['profiles'] = [
       {
-        name: 'DevSec Windows Security Baseline',
-        compliance: 'admin/windows-baseline',
-      },
-      {
         name: 'CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server',
-        compliance: 'admin/cis-windows2012r2-level1-memberserver',
+        compliance: 'workstation-1/cis-windows2012r2-level1-memberserver',
       },
     ]
-when 'redhat'
+  when 'redhat'
     default['audit']['profiles'] = [
       {
-        name: 'DevSec Linux Security Baseline',
-        compliance: 'admin/linux-baseline',
-      },
-      {
         name: 'CIS Red Hat Enterprise Linux 7 Benchmark Level 1 - Server',
-        compliance: 'admin/cis-rhel7-level1-server',
+        compliance: 'workstation-1/cis-rhel7-level1-server',
       },
     ]
   end
