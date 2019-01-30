@@ -47,3 +47,51 @@ default['audit']['profiles'] =
       },
     ]
   end
+
+#
+#  Another example 
+#
+
+
+# Reporting and fetching options
+# default['audit']['reporter'] = 'chef-server-automate'
+# default['audit']['fetcher'] = 'chef-server'
+# default['audit']['insecure'] = true
+# # default['audit']['inspec_version'] = '1.30.0'
+
+# default['audit']['profiles'].push 'name' => 'ssl',
+#                                   'git' => 'https://github.com/dev-sec/linux-baseline.git'
+
+# # Profile options
+# case node['platform_family']
+# when 'rhel'
+#   case node['platform']
+#   when 'redhat'
+#     rh_role = File.read('/etc/redhat-release').chomp[/workstation/i] ? 'workstation' : 'server'
+#     case node['platform_version']
+#     when /^7\./
+#       default['audit']['profiles'].push 'name' => "nov-rhel7-level1-#{rh_role}",'compliance' => "squirda1/nov-rhel7-level1-#{rh_role}"
+#     when /^6\./
+#       default['audit']['profiles'].push 'name' => "nov-rhel6-level1-#{rh_role}",'compliance' => "squirda1/nov-rhel6-level1-#{rh_role}"
+#     end
+#   when 'oracle'
+#     case node['platform_version']
+#     when /^6\./
+#       default['audit']['profiles'].push 'name' => 'nov-oracle6-level1-server','compliance' => 'squirda1/nov-oracle6-level1-server'
+#     end
+#   end
+# when 'windows'
+#   case node['kernel']['os_info']['cs_info']['domain_role']
+#   when '4', '5'
+#     win_role = 'domaincontroller'
+#   else
+#     win_role = 'memberserver'
+#   end
+
+#   case node['platform_version']
+#   when /^6.3/ # 2012R2
+#     default['audit']['profiles'].push 'name' => "nov-windows2012r2-level1-#{win_role}", 'compliance' => "squirda1/nov-windows2012r2-level1-#{win_role}"
+#   when /^6.1/ # 2008R2
+#     default['audit']['profiles'].push 'name' => "nov-windows2008r2-level1-#{win_role}", 'compliance' => "squirda1/nov-windows2008r2-level1-#{win_role}"
+#   end
+# end
