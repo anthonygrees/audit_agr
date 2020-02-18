@@ -4,11 +4,10 @@ maintainer_email 'you@example.com'
 license 'All Rights Reserved'
 description 'Installs/Configures audit_agr'
 long_description 'Installs/Configures audit_agr'
-version '2.2.3'
+version '2.2.4'
+chef_version '>= 12.14' if respond_to?(:chef_version)
 
-chef_version '>= 12.1' if respond_to?(:chef_version)
-
-depends 'audit', '7.4.0'
+depends 'audit'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
