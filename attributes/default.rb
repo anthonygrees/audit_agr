@@ -25,16 +25,30 @@ default['audit']['profiles'] =
       },
     ]
   when 'windows'
-    default['audit']['profiles'] = [
-      {
-        name: 'DevSec Windows Security Baseline',
-        compliance: 'admin/windows-baseline',
-      },
-      {
-        name: 'CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server',
-        compliance: 'admin/cis-windows2012r2-level1-memberserver',
-      },
-    ]
+    case  node['platform_version']
+      when /^10/ # 2016
+        default['audit']['profiles'] = [
+          {
+           name: 'DevSec Windows Security Baseline',
+           compliance: 'admin/windows-baseline',
+         },
+          {
+           name: 'CIS Microsoft Windows Server 2016 RTM (Release 1607) Benchmark Level 1 - Member Server',
+           compliance: 'admin/cis-windows2016rtm-release1607-level1-memberserver',
+         },
+        ]
+      when /^6.3/ # 2012R2
+        default['audit']['profiles'] = [
+          {
+           name: 'DevSec Windows Security Baseline',
+           compliance: 'admin/windows-baseline',
+         },
+          {
+           name: 'CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server',
+           compliance: 'admin/cis-windows2012r2-level1-memberserver',
+         },
+        ]
+  end
   when 'redhat'
     default['audit']['profiles'] = [
       {
