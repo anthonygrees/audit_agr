@@ -28,6 +28,7 @@ default['audit']['profiles'] =
   when 'windows'
     case  node['platform_version']
       when /^10/ # 2016
+        default['audit']['waiver_file'] = 'c:\\waiver.yml'
         default['audit']['profiles'] = [
           {
            name: 'DevSec Windows Security Baseline',
