@@ -39,6 +39,7 @@ default['audit']['profiles'] =
          },
         ]
       when /^6.3/ # 2012R2
+        default['audit']['waiver_file'] = 'c:\\waiver.yml'
         default['audit']['profiles'] = [
           {
            name: 'DevSec Windows Security Baseline',
