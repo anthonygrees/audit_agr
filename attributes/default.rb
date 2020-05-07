@@ -3,6 +3,7 @@ default['audit']['reporter'] = 'chef-server-automate'
 default['audit']['profiles'] =
   case node['platform']
   when 'centos'
+    default['audit']['waiver_file'] = '/home/centos/waiver.yml'
     default['audit']['profiles'] = [
       {
         name: 'DevSec Linux Security Baseline',
