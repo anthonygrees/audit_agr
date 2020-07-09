@@ -40,17 +40,27 @@ default['audit']['profiles'] =
          },
         ]
       when /^6.3/ # 2012R2
-        default['audit']['waiver_file'] = 'c:\\waiver.yml'
-        default['audit']['profiles'] = [
-          {
-           name: 'DevSec Windows Security Baseline',
-           compliance: 'workstation-1/windows-baseline',
-         },
-          {
-           name: 'CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server',
-           compliance: 'workstation-1/cis-windows2012r2-level1-memberserver',
-         },
-        ]
+        case node['policy_name'] ## 
+          when 'base_windows2012_acsc'
+            default['audit']['profiles'] = [
+              {
+              name: 'Australian Government Information Security Manual',
+              compliance: 'workstation-1/acsc_ism_baseline',
+            },
+            ]
+          else
+            default['audit']['waiver_file'] = 'c:\\waiver.yml'
+            default['audit']['profiles'] = [
+              {
+              name: 'DevSec Windows Security Baseline',
+              compliance: 'workstation-1/windows-baseline',
+            },
+              {
+              name: 'CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server',
+              compliance: 'workstation-1/cis-windows2012r2-level1-memberserver',
+            },
+            ]
+        end
   end
   when 'redhat'
     default['audit']['profiles'] = [
