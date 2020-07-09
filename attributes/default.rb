@@ -47,6 +47,10 @@ default['audit']['profiles'] =
               name: 'Australian Government Information Security Manual',
               compliance: 'workstation-1/acsc_ism_baseline',
             },
+              {
+              name: 'Windows Patch Baseline',
+              compliance: 'workstation-1/windows-patch-baseline',
+            },
             ]
           else
             default['audit']['waiver_file'] = 'c:\\waiver.yml'
